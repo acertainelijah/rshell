@@ -2,7 +2,7 @@
 
 int main() {
 
-    cout << "Testing if repository" << endl;;
+    cout << "Testing if repository: " << endl;
 
-    return 0;
-
+return 0;
+}
