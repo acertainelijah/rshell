@@ -8,7 +8,7 @@ class Semicolon : public Connector {
 
   public:
     Semicolon(){};
-    Semicolon(CommandPrompt* l, CommandPrompt* right){
+    Semicolon(CommandPrompt* l, CommandPrompt* r){
       left = l;
       right = r;
     }
