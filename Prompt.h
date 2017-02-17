@@ -51,6 +51,9 @@ public:
     }
 
   }
+  bool commandFailed(){
+    return false;
+  }
 
 };
 

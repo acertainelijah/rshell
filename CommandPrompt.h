@@ -10,6 +10,7 @@ class CommandPrompt { //BASE CLASS FOR OUR COMPOSITE PATTERN
   public:
     CommandPrompt(){};
     virtual void execute() = 0;
+    virtual bool commandFailed() = 0;
 
 };
 

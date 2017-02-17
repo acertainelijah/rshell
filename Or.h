@@ -4,8 +4,8 @@
 #include "CommandPrompt.h"
 #include "Connector.h"
 
-class Or : public Connector { //connector class that executes the right command if
-                              //and only if the left command fails.
+class Or : public Connector {               //connector class that executes the right command if
+                                            //and only if the left command fails.
 
   public:
     Or(){};
@@ -13,7 +13,19 @@ class Or : public Connector { //connector class that executes the right command 
       left = l;
       right = r;
     }
-    void execute(); //execute right command only if the left fails to execute.
+    void execute(){                         //executes the right command if and only if
+      left->execute();                      //left command fails to execute.
+      if(left->commandFailed()){            //if left command fails,
+        right->execute();                   //execute right.
+      }
+      return;
+    }
+    bool commandFailed(){
+      if(right->commandFailed() || !left->commandFailed()){           //if the right fails, connector fails.
+        return true;                                                  //function to determine whether the connector
+      }
+      return false;                                                   //failed or if it passed.
+    }
   private:
     CommandPrompt* left; //left command
     CommandPrompt* right; //right command

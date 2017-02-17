@@ -12,8 +12,18 @@ class Semicolon : public Connector {
       left = l;
       right = r;
     }
-    void execute(); //EXECUTE RIGHT COMMAND REGARDLESS OF WHETHER OR NOT
-                    //LEFT COMMAND SUCCESSFULLY EXECUTES
+    void execute(){                         //executes the right command regardless
+      left->execute();                      //of the left command
+      right->execute();
+      return;
+    }
+    bool commandFailed(){
+      if(right->commandFailed()){           //if right fails, connector fails.
+        return true;                        //function to determine whether the connector
+      }
+      return false;                         //failed or if it passed.
+    }
+
 
   private:
     CommandPrompt* left;
