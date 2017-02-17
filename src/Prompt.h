@@ -5,6 +5,7 @@
 #include <sstream>
 #include <stdio.h>
 #include <vector>
+#include <string>
 #include "CommandPrompt.h"
 
 class Prompt : public CommandPrompt { //Leaf that simply displays the prompt
@@ -23,6 +24,8 @@ public:
     hostname = (char *)malloc(1000*sizeof(char));
     gethostname(hostname, 1000);                        //gets the host name
 
+    bool commentFound = false;
+
     while(true){
 
       parsedUserInput.clear();
@@ -35,17 +38,22 @@ public:
       while(ss){
         string sub;
         ss >> sub;
-
         parsedUserInput.push_back(sub);
       }
 
       parsedUserInput.pop_back();
+      
+      vector<string> temp;
 
-      // for(unsigned i = 0; i < parsedUserInput.size(); ++i){
-      //   cout << parsedUserInput.at(i) << endl;
-      // }
-
-      CommandPrompt* object = new Command(parsedUserInput);
+      for(unsigned i = 0; i < parsedUserInput.size(); ++i){
+        if(parsedUserInput.at(i).find("#") != string::npos){ //comments
+          break;
+        }
+        else {
+          temp.push_back(parsedUserInput.at(i));
+        }
+      }
+      CommandPrompt* object = new Command(temp);
       object->execute();
 
     }

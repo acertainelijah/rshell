@@ -12,8 +12,8 @@ class Connector : public CommandPrompt { //holds children(commands) for executin
       left = a;
       right = b;
     } //SETS THE CHILDREN UP
-    virtual void execute(){};
-    virtual bool commandFailed();
+    virtual void execute() = 0;
+    virtual bool commandFailed() = 0;
   private:
     //LEFT AND RIGHT CHILDREN FOR THE COMMANDS TO EXECUTE
     CommandPrompt* left; //left command

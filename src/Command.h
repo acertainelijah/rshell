@@ -22,7 +22,7 @@ class Command : public CommandPrompt { 	//Leaf that will execute command + argum
         //size error
       }
       else if (input.at(0) == "exit") {   //exits program if command is exit
-        cout << "Terminating program... Goodbye!" << endl;
+        //cout << "Terminating program... Goodbye!" << endl;
         exit(-1); //exit? or just exit out of class? return out of execute?
       }
       else {
@@ -30,16 +30,16 @@ class Command : public CommandPrompt { 	//Leaf that will execute command + argum
             inputArray[i] = (char*)input.at(i).c_str();
           }
       }
-    }
+    }   
   public:
     Command(){};
-
+    
     Command(vector<string> input) {
       this->input = input;
       inputArray = new char*[input.size()];
       ifFailed = false;
     };
-
+    
     void execute() { 			    //runs command
       this->parseInput();   //parses input to command and arguments
       //test code start
@@ -50,6 +50,7 @@ class Command : public CommandPrompt { 	//Leaf that will execute command + argum
       }
       if(childPID > 0) {  //fork pid parent
        wait(NULL); //TODO waitpid()???
+                   //TODO error?
       }
       if(childPID == 0) { //fork pid child
         if (execvp (inputArray[0], inputArray) == -1) {     //1st arg command (turned into c string), 2nd arg arguments
@@ -59,7 +60,7 @@ class Command : public CommandPrompt { 	//Leaf that will execute command + argum
         }
       }
     }
-
+    
    bool commandFailed() {return this->ifFailed;}  //returns if command has failed or not
 
 };
