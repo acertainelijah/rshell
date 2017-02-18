@@ -35,7 +35,24 @@ $ tacos #this fails and outputs error
 ### Command bugs:
 - ls wont work after mkdir
 - bad address error after a command fails
-- exit will not work immediately after ls, but will if you input exit once more.
+- exit will sometimes not execute properly if many commands have been inputted.
+    * Example: We dont know why...
+    ~~~
+    $ ./a.out
+    $ ls
+    $ mkdir a
+    $
+    $ ls
+    $ rm -r a
+    $ ls
+    $ mkdir a
+    $ ls
+    $ rm -r a
+    $ exit
+    $ exit
+    Shell terminates on the second input of exit here.
+    ~~~
+
 
 ### Prompt bugs:
 - the commands would stack on top of each other inside the vector, causing no commands to work. (FIXED)
