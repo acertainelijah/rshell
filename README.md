@@ -38,7 +38,7 @@ $ tacos #this fails and outputs error
 - exit will not work immediately after ls, but will if you input exit once more.
 
 ### Prompt bugs:
-- the commands would stack on top of each other inside the vector, causing no commands to work.
+- the commands would stack on top of each other inside the vector, causing no commands to work. (FIXED)
 
 ###Comment bugs
-- .find() not working to find "#"
+- .find() not working to find "#" (Fixed using string::npos)
