@@ -39,5 +39,5 @@ $ tacos #this fails and outputs error
 ### Prompt bugs: 
 - the commands would stack on top of each other inside the vector, causing no commands to work.
 
-##Comment bugs
+###Comment bugs
 - .find() not working to find "#"
