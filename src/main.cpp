@@ -48,14 +48,14 @@ int main() {
   // SEMI->execute();                        //a b
   // CommandPrompt* AND = new And(OR, test1);
   // AND->execute();                         //a
-  
+
   //----------------------------Testing Prompt------------------------
   CommandPrompt* testcomm = new Prompt();
   testcomm->execute();
-  
+
   //have
-  
+
   //TODO connector tree (linked list?), tests, tag hw2, hw2 file submitted into iLearn link, finish README.md, comment more
-  
+
   return 0;
 }
