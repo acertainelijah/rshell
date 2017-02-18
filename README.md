@@ -7,13 +7,13 @@ This program is a replica of a command shell. It executes commands located in /b
 to our programmed "exit" command.
 
 ### Features
-- connects commands together using connectors &&, ||, and ; 
+- connects commands together using connectors &&, ||, and ;
     * && - next command is executed only if the first one succeeds
     * || - next command is executed only if the first one fails
     * \ - next command is always executed
-    * Example: 
+    * Example:
     ~~~
-    $ echo a; ls -a && git status || clear 
+    $ echo a; ls -a && git status || clear
     ~~~
 - special built-in command of exit that terminates rshell
 ~~~
@@ -34,9 +34,10 @@ $ tacos #this fails and outputs error
 
 ### Command bugs:
 - ls wont work after mkdir
-- bad address error after a command fails 
+- bad address error after a command fails
+- exit will not work immediately after ls, but will if you input exit once more.
 
-### Prompt bugs: 
+### Prompt bugs:
 - the commands would stack on top of each other inside the vector, causing no commands to work.
 
 ###Comment bugs
