@@ -1,11 +1,11 @@
 # rshell
 cs100 assignment
 
-<<<<<<< HEAD
 
 ## Description
 This program is a replica of a command shell. It executes commands located in /bin in addition
 to our programmed "exit" command.
+
 ### Features
 - connects commands together using connectors &&, ||, and ; 
     * && - next command is executed only if the first one succeeds
@@ -28,7 +28,6 @@ $ ls -a #this is a comment
 $ tacos #this fails and outputs error
 ~~~
 
-
 ## BUGS
 ### Object bugs
 - expected type-specifier before ‘Semicolon’
@@ -40,16 +39,5 @@ $ tacos #this fails and outputs error
 ### Prompt bugs: 
 - the commands would stack on top of each other inside the vector, causing no commands to work.
 
-### Comment bugs
-=======
-# BUGS
-##Command bugs:
-- ls wont work after mkdir
-- echo: bad address 
-
-##prompt bugs: 
--the commands would stack on top of each other inside the vector, causing no commands to work.
-
-##comment bugs
->>>>>>> e3987eec9475c95179bf787699d8f9313ce85191
+##Comment bugs
 - .find() not working to find "#"
