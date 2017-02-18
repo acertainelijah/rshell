@@ -12,12 +12,12 @@ class Or : public Connector {               //connector class that executes the 
       left = NULL;
       right = NULL;
     };
-    
+
     Or(CommandPrompt* l, CommandPrompt* r){
       left = l;
       right = r;
     }
-    
+
     void execute(){                         //executes the right command if and only if
       if (left == NULL) {
         return;
@@ -31,18 +31,18 @@ class Or : public Connector {               //connector class that executes the 
       }
       return;
     }
-    
+
     bool commandFailed(){
       if (right->commandFailed() || !left->commandFailed()){           //if the right fails, connector fails.
         return true;                                                  //function to determine whether the connector
       }
       return false;                                                   //failed or if it passed.
     }
-    
+
     void setLeft(CommandPrompt* l) {this->left = l;}
-    
+
     void setRight(CommandPrompt* r) {this->right = r;}
-    
+
   private:
     CommandPrompt* left; //left command
     CommandPrompt* right; //right command
