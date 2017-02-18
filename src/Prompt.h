@@ -16,10 +16,9 @@ private:
 
 public:
   Prompt(){};
-  
+
   void execute() {
-    char *name;                                     //declare the name variable
-    name = (char *)malloc(100*sizeof(char));
+    char name[100];                                 //declare the name variable
     getlogin_r(name, 100);                          //get user name
     char *hostname;                                 //declare hostname variable
     hostname = (char *)malloc(1000*sizeof(char));
@@ -40,10 +39,10 @@ public:
       }
 
       parsedUserInput.pop_back();
-      
+
       vector<string> revisedUserInput;
       revisedUserInput.clear();
-      
+
       for (unsigned i = 0; i < parsedUserInput.size(); ++i){
         if (parsedUserInput.at(i).find("#") != string::npos){ // stops at comment
           break;
@@ -59,15 +58,15 @@ public:
           revisedUserInput.push_back(parsedUserInput.at(i));
         }
       }
-      
-      //begin tree hierarchy 
+
+      //begin tree hierarchy
       vector<string> commandInput;
       vector<CommandPrompt*> tree;
       CommandPrompt* tempLeft = NULL;
       CommandPrompt* tempRight = NULL;
       commandInput.clear();
       tree.clear();
-      
+
       for (unsigned i = 0; i < revisedUserInput.size(); ++i){ //search through parsed input for connectors.
         //if last element
         if (i == revisedUserInput.size() - 1) {
@@ -113,7 +112,7 @@ public:
             tempLeft = tree.back();
             tree.pop_back();
           }
-          tree.push_back(new Semicolon());  
+          tree.push_back(new Semicolon());
           tree.back()->setLeft(tempLeft); //sets AND left to tempLeft
         }
         else if (tempLeft != NULL && ( (revisedUserInput.at(i + 1) == "&&") || (revisedUserInput.at(i + 1) == "||") || (revisedUserInput.at(i + 1) == ";") ) ) {
@@ -129,7 +128,7 @@ public:
         }
       }
       //end tree hierarchy
-      
+
       //begin execution
       for (unsigned i = 0; i < tree.size(); i++) {
         tree.at(i)->execute();
