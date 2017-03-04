@@ -27,7 +27,7 @@ $ ls -a #this is a comment
 ~~~
 $ tacos #this fails and outputs error
 ~~~
-- Can use the test command for checking the validity of a file or directory (does have a minor bug)
+- Can use the test command for checking the validity of a file or directory
     * Example: (if we have a.out)
     ~~~
     dwhel001@hammer.cs.ucr.edu$ test -e a.out
@@ -45,6 +45,15 @@ $ tacos #this fails and outputs error
     dwhel001@hammer.cs.ucr.edu$ [ -d a.out ]
     (False)
     ~~~
+- Can use parenthesis to instantiate precedence
+  * Example:
+  ~~~
+  dwhel001@hammer.cs.ucr.edu$ (echo a && (echo b && (echo c)))
+  a
+  b
+  c
+  dwhel001@hammer.cs.ucr.edu$ exit
+  ~~~
 
 ## BUGS
 ### Object bugs
