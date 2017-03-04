@@ -27,6 +27,24 @@ $ ls -a #this is a comment
 ~~~
 $ tacos #this fails and outputs error
 ~~~
+- Can use the test command for checking the validity of a file or directory (does have a minor bug)
+    * Example: (if we have a.out)
+    ~~~
+    dwhel001@hammer.cs.ucr.edu$ test -e a.out
+    (True)
+    dwhel001@hammer.cs.ucr.edu$ test -f a.out
+    (True)
+    It's a file.
+    dwhel001@hammer.cs.ucr.edu$ test -d a.out
+    (False)
+    dwhel001@hammer.cs.ucr.edu$ [ -e a.out ]
+    (True)
+    dwhel001@hammer.cs.ucr.edu$ [ -f a.out ]
+    (True)
+    It's a file.
+    dwhel001@hammer.cs.ucr.edu$ [ -d a.out ]
+    (False)
+    ~~~
 
 ## BUGS
 ### Object bugs
@@ -68,4 +86,3 @@ $ tacos #this fails and outputs error
     a
     dwhel001@hammer.cs.ucr.edu$
     ~~~
-    
