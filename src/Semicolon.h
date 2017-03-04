@@ -11,12 +11,12 @@ class Semicolon : public Connector {
       left = NULL;
       right = NULL;
     };
-
+    
     Semicolon(CommandPrompt* l, CommandPrompt* r){
       left = l;
       right = r;
     }
-
+    
     void execute(){                         //executes the right command regardless
       if (left == NULL) {
         return;
@@ -28,14 +28,14 @@ class Semicolon : public Connector {
       right->execute();
       return;
     }
-
+    
     bool commandFailed(){
-      if (right->commandFailed()){           //if right fails, connector fails.
-        return true;                        //function to determine whether the connector
-      }
-      return false;                         //failed or if it passed.
+      // if (right->commandFailed()){           //if right fails, connector fails.
+      //   return true;                        //function to determine whether the connector
+      // }
+      return right->commandFailed();                         //failed or if it passed.
     }
-
+    
     void setLeft(CommandPrompt* l) {this->left = l;}
     void setRight(CommandPrompt* r) {this->right = r;}
 

@@ -13,6 +13,8 @@ class CommandPrompt { //BASE CLASS FOR OUR COMPOSITE PATTERN
     virtual bool commandFailed() = 0;
     virtual void setLeft(CommandPrompt* l) {};
     virtual void setRight(CommandPrompt* r) {};
+    virtual CommandPrompt* getLeft() {};
+    virtual CommandPrompt* getRight() {};
 
 };
 
