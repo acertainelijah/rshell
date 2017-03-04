@@ -23,7 +23,7 @@ protected:
 
 public:
   Prompt(){};
-  
+
   void execute() {
     char name[100];
     getlogin_r(name, 100);                          //get user name
@@ -46,9 +46,15 @@ public:
       }
 
       parsedUserInput.pop_back();
+<<<<<<< HEAD
       
       // cout << "testing" << endl;
       
+=======
+
+      // cout << "testing" << endl;
+
+>>>>>>> 8eb112326780cf5c658075f75e6bea24839c0791
       // for(unsigned e = 0; e < parsedUserInput.size(); ++e){
       //   cout << parsedUserInput.at(e) << endl;
       // }
@@ -56,7 +62,7 @@ public:
       int numClosed = 0;
       vector<string> revisedUserInput;
       revisedUserInput.clear();
-      
+
       for (unsigned i = 0; i < parsedUserInput.size(); ++i){
         numOpen = 0;
         numClosed = 0;
@@ -73,6 +79,7 @@ public:
             if (parsedUserInput.at(i).at(parsedUserInput.at(i).size() - 1) != ';') {
               revisedUserInput.push_back(parsedUserInput.at(i).substr(parsedUserInput.at(i).find(";") + 1)); //characters after ;
             }
+<<<<<<< HEAD
           }
           else if (parsedUserInput.at(i).find("(") != string::npos || parsedUserInput.at(i).find(")") != string::npos){
             for(unsigned j = 0; j < parsedUserInput.at(i).size(); j++) {
@@ -97,11 +104,41 @@ public:
             revisedUserInput.push_back(parsedUserInput.at(i));
           }
           
+=======
+          }
+          else if (parsedUserInput.at(i).find("(") != string::npos || parsedUserInput.at(i).find(")") != string::npos){
+            for(unsigned j = 0; j < parsedUserInput.at(i).size(); j++) {
+              if(parsedUserInput.at(i).at(j) == '(') { //counts num open parenthesis in current string
+                numOpen++; //aha my original design IS BEING USED #feelsgoodman
+              }
+              else if(parsedUserInput.at(i).at(j) == ')') { //counts num closed parenthesis in current string
+                numClosed++; //aha my original design IS BEING USED #feelsgoodman
+              }
+            }
+
+            for(unsigned j = 0; j < numOpen; j++){
+              revisedUserInput.push_back("(");
+            }
+            newString = parsedUserInput.at(i).substr(numOpen, parsedUserInput.at(i).size() - numOpen - numClosed);
+            revisedUserInput.push_back(newString);
+            for(unsigned j = 0; j < numClosed; j++){
+              revisedUserInput.push_back(")");
+            }
+          }
+          else {
+            revisedUserInput.push_back(parsedUserInput.at(i));
+          }
+
+>>>>>>> 8eb112326780cf5c658075f75e6bea24839c0791
           // else if (parsedUserInput.at(i).find("(") != string::npos && parsedUserInput.at(i).find(")") != string::npos){ // EXAMPLE: (ls)
           //   // revisedUserInput.push_back("(");
           //   // revisedUserInput.push_back(parsedUserInput.at(i).substr(parsedUserInput.at(i).find("(") + 1, parsedUserInput.at(i).size() - 2)); //word after (
           //   // revisedUserInput.push_back(")");
+<<<<<<< HEAD
             
+=======
+
+>>>>>>> 8eb112326780cf5c658075f75e6bea24839c0791
           // }
           // else if (parsedUserInput.at(i).find(")") != string::npos){ // EXAMPLE: ls)
           //   // revisedUserInput.push_back(parsedUserInput.at(i).substr(0, parsedUserInput.at(i).size() - 1)); //word before )
@@ -112,11 +149,19 @@ public:
           //   // revisedUserInput.push_back(parsedUserInput.at(i).substr(parsedUserInput.at(i).find("(") + 1)); //word after (
           // }                                                                     //TODO handle when parenthesis is reached in a word, push onto revisedUserInput EXAMPLE: (((echo a && echo b) ...
 
+<<<<<<< HEAD
         
           // revisedUserInput.push_back(parsedUserInput.at(i));
           
         }
         
+=======
+
+          // revisedUserInput.push_back(parsedUserInput.at(i));
+
+        }
+
+>>>>>>> 8eb112326780cf5c658075f75e6bea24839c0791
         // while(numOpen != 0){
         //   revisedUserInput.push_back("(");
         //   --numOpen;
@@ -133,11 +178,19 @@ public:
         //   revisedUserInput.push_back(parsedUserInput.at(i));
         // }
       }
+<<<<<<< HEAD
       
       // for( int i = 0; i < revisedUserInput.size(); i++){ //**TESTING
       //   cout << revisedUserInput.at(i) << endl; 
       // }
       
+=======
+
+      // for( int i = 0; i < revisedUserInput.size(); i++){ //**TESTING
+      //   cout << revisedUserInput.at(i) << endl;
+      // }
+
+>>>>>>> 8eb112326780cf5c658075f75e6bea24839c0791
       //begin parenthesis parse
       //create vector of vecotr<string>
       //go through entire input
@@ -146,10 +199,17 @@ public:
       //Example:
       //() () () 3 parenthesis
       // for ( 3 times ) {
+<<<<<<< HEAD
         
       // }
       
       
+=======
+
+      // }
+
+
+>>>>>>> 8eb112326780cf5c658075f75e6bea24839c0791
       // for () {
       //   makeTree(parentheticalInput.at(i))
       // }
@@ -157,10 +217,17 @@ public:
       // vector<string> temp;
       // for (unsigned i = 0; i < revisedUserInput.size(); i++) {
       //   if (revisedUserInput.at(i).at(0) == "(") {
+<<<<<<< HEAD
           
       //   }
       // }
       
+=======
+
+      //   }
+      // }
+
+>>>>>>> 8eb112326780cf5c658075f75e6bea24839c0791
       //test
       // for(int a = 0; a < revisedUserInput.size(); ++a){
       //   cout << revisedUserInput.at(a) << " ";
@@ -172,7 +239,11 @@ public:
         tree.push_back(temp);
       }
       else {
+<<<<<<< HEAD
         this->makeTree(revisedUserInput);  
+=======
+        this->makeTree(revisedUserInput);
+>>>>>>> 8eb112326780cf5c658075f75e6bea24839c0791
       }
       //begin execution
       for (unsigned i = 0; i < tree.size(); i++) {
@@ -182,9 +253,15 @@ public:
     }
 
   }
+<<<<<<< HEAD
   
   CommandPrompt* makeParenthesisTree(vector<string> revisedUserInput, unsigned &numSkips) {
           //begin tree hierarchy 
+=======
+
+  CommandPrompt* makeParenthesisTree(vector<string> revisedUserInput, unsigned &numSkips) {
+          //begin tree hierarchy
+>>>>>>> 8eb112326780cf5c658075f75e6bea24839c0791
       vector<string> commandInput;
       CommandPrompt* tempLeft = NULL;
       CommandPrompt* tempRight = NULL;
@@ -193,10 +270,17 @@ public:
       subTree.clear();
       vector<string> revisedUserInputv2;
       revisedUserInputv2.clear();
+<<<<<<< HEAD
       
       for (unsigned i = 0; i < revisedUserInput.size(); ++i){ //search through parsed input for connectors.
         //if last element
         
+=======
+
+      for (unsigned i = 0; i < revisedUserInput.size(); ++i){ //search through parsed input for connectors.
+        //if last element
+
+>>>>>>> 8eb112326780cf5c658075f75e6bea24839c0791
         if (revisedUserInput.at(i) == "(") {
           //numSkips = 0; //replaced this with tempSkips (below)
           numSkips = i; //***TESTING solution 2
@@ -205,12 +289,20 @@ public:
           if (tempLeft != NULL /*&& tempRight == NULL*/) {  //if not empty and tempLeft != NULL and right exists //**TESTING (it might run into a case where left && right exist)
             tempRight = new Parenthesis();
             tempRight->setRight(makeParenthesisTree(restOfInput, numSkips));   //recursive call  (setRight == setChild for Parenthesis Class)
+<<<<<<< HEAD
             subTree.back()->setRight(tempRight); 
+=======
+            subTree.back()->setRight(tempRight);
+>>>>>>> 8eb112326780cf5c658075f75e6bea24839c0791
             tempLeft = NULL;
             tempRight = NULL;
           }
           // else if (tempRight != NULL) { //**TESTING
+<<<<<<< HEAD
             
+=======
+
+>>>>>>> 8eb112326780cf5c658075f75e6bea24839c0791
           // }
           else { //if tree empy
             subTree.push_back(new Parenthesis());
@@ -219,6 +311,7 @@ public:
           i = numSkips;
           // i = numSkips + 1; //***TESTUING solution 1
           // numSkips += tempSkips;
+<<<<<<< HEAD
         }
         else if (revisedUserInput.at(i) == ")") {
           //numSkips++; //**TESTING
@@ -227,6 +320,16 @@ public:
           }
           return subTree.front();
         }
+=======
+        }
+        else if (revisedUserInput.at(i) == ")") {
+          //numSkips++; //**TESTING
+          if (subTree.empty()) {
+            subTree.push_back(new Command (commandInput));
+          }
+          return subTree.front();
+        }
+>>>>>>> 8eb112326780cf5c658075f75e6bea24839c0791
         // else if(revisedUserInput.at(i) == "(" && revisedUserInput.at(revisedUserInput.size() - 1) == ")"){
         //   revisedUserInput.pop_back();
         //   for(unsigned g = 0; g < revisedUserInput.size(); ++g){
@@ -239,8 +342,13 @@ public:
           if (subTree.empty()) { //if tree is empty, push a command
             subTree.push_back(new Command(commandInput));
           }
+<<<<<<< HEAD
           else {        //if tree is not empty, there has to be a connector. 
             subTree.back()->setRight(new Command(commandInput)); 
+=======
+          else {        //if tree is not empty, there has to be a connector.
+            subTree.back()->setRight(new Command(commandInput));
+>>>>>>> 8eb112326780cf5c658075f75e6bea24839c0791
           }
           commandInput.clear();     //clears commandInput for other commands
         }
@@ -277,7 +385,11 @@ public:
             tempLeft = subTree.back();
             subTree.pop_back();
           }
+<<<<<<< HEAD
           subTree.push_back(new Semicolon());  
+=======
+          subTree.push_back(new Semicolon());
+>>>>>>> 8eb112326780cf5c658075f75e6bea24839c0791
           subTree.back()->setLeft(tempLeft); //sets AND left to tempLeft
         }
         else if (tempLeft != NULL && ( (revisedUserInput.at(i + 1) == "&&") || (revisedUserInput.at(i + 1) == "||") || (revisedUserInput.at(i + 1) == ";") || (revisedUserInput.at(i + 1) == ")") ) ) { //**TESTING added ")""
@@ -293,6 +405,7 @@ public:
         }
         numSkips++;  //this is how many elements in the parent inputVector to skip to finish reading command
       }
+<<<<<<< HEAD
       
       return subTree.front(); //not sure if returning this here is correct
   }
@@ -300,12 +413,21 @@ public:
   void makeTree(vector<string> revisedUserInput){
     
     //begin tree hierarchy 
+=======
+
+      return subTree.front(); //not sure if returning this here is correct
+  }
+
+  void makeTree(vector<string> revisedUserInput){
+
+    //begin tree hierarchy
+>>>>>>> 8eb112326780cf5c658075f75e6bea24839c0791
       vector<string> commandInput;
       CommandPrompt* tempLeft = NULL;
       CommandPrompt* tempRight = NULL;
       commandInput.clear();
       tree.clear();
-      
+
       for (unsigned i = 0; i < revisedUserInput.size(); ++i){ //search through parsed input for connectors.
         //if last element
         if (i == revisedUserInput.size() - 1) {        // if at last element
@@ -313,7 +435,11 @@ public:
           if (tree.empty()) { //if tree is empty, push a command
             tree.push_back(new Command(commandInput));
           }
+<<<<<<< HEAD
           else {        //if tree is not empty, there has to be a connector. 
+=======
+          else {        //if tree is not empty, there has to be a connector.
+>>>>>>> 8eb112326780cf5c658075f75e6bea24839c0791
             tree.back()->setRight(new Command(commandInput)); //FIXME
           }
           commandInput.clear();     //clears commandInput for other commands
@@ -351,7 +477,7 @@ public:
             tempLeft = tree.back();
             tree.pop_back();
           }
-          tree.push_back(new Semicolon());  
+          tree.push_back(new Semicolon());
           tree.back()->setLeft(tempLeft); //sets AND left to tempLeft
         }
         else if (tempLeft != NULL && ( (revisedUserInput.at(i + 1) == "&&") || (revisedUserInput.at(i + 1) == "||") || (revisedUserInput.at(i + 1) == ";") ) ) {
@@ -367,9 +493,15 @@ public:
         }
       }
       //end tree hierarchy
+<<<<<<< HEAD
     
   }
   
+=======
+
+  }
+
+>>>>>>> 8eb112326780cf5c658075f75e6bea24839c0791
   bool commandFailed(){
     return false;
   }

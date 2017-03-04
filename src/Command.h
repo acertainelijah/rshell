@@ -17,7 +17,7 @@ class Command : public CommandPrompt { 	//Leaf that will execute command + argum
     vector<string> input; 		//vector of string of command + arguments
     char** inputArray;
     bool ifFailed;
-    
+
     //functions
     void parseInput() {
       if(input.size() == 0) {
@@ -32,14 +32,23 @@ class Command : public CommandPrompt { 	//Leaf that will execute command + argum
           }
           inputArray[input.size()] = NULL; //null terminated array
       }
+<<<<<<< HEAD
     }   
     
+=======
+    }
+
+>>>>>>> 8eb112326780cf5c658075f75e6bea24839c0791
     void testCommand() {
       // const char* path = input.at(input.size() - 1).c_str();
       const char* path;
       if (input.at(0) == "test") {
         path = input.at(input.size() - 1).c_str();
+<<<<<<< HEAD
       } 
+=======
+      }
+>>>>>>> 8eb112326780cf5c658075f75e6bea24839c0791
       else if (input.at(0) == "[") {
         path = input.at(input.size() - 2).c_str();
       }
@@ -47,9 +56,15 @@ class Command : public CommandPrompt { 	//Leaf that will execute command + argum
       struct stat s;
         if( stat(path,&s) == 0 ) //TODO what is path?
         {
+<<<<<<< HEAD
           
           if (input.at(1) == "-d" || input.at(1) == "-f") {
            
+=======
+
+          if (input.at(1) == "-d" || input.at(1) == "-f") {
+
+>>>>>>> 8eb112326780cf5c658075f75e6bea24839c0791
             if( s.st_mode & S_IFDIR && input.at(1) == "-d")      // -d
             {
                 //it's a directory
@@ -78,10 +93,14 @@ class Command : public CommandPrompt { 	//Leaf that will execute command + argum
             cout << "(False)" << endl;
         }
     }
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> 8eb112326780cf5c658075f75e6bea24839c0791
   public:
     Command(){};
-    
+
     Command(vector<string> input) {
       this->input = input;
       inputArray = new char*[input.size() + 1];
@@ -89,7 +108,11 @@ class Command : public CommandPrompt { 	//Leaf that will execute command + argum
     };
     void execute() { 			    //runs command
       if (input.at(0) == "test" || (input.at(0) == "[" && input.at(input.size()-1) == "]") ) { // if "test" command
+<<<<<<< HEAD
         this->testCommand();    ///runs test command 
+=======
+        this->testCommand();    ///runs test command
+>>>>>>> 8eb112326780cf5c658075f75e6bea24839c0791
       }
       else {                          // all other commands
         this->parseInput();           //parses input to command and arguments
@@ -100,7 +123,11 @@ class Command : public CommandPrompt { 	//Leaf that will execute command + argum
           exit(-1);                   //exits program TODO is this appropriate action?
         }
         if(childPID > 0) {            //fork pid parent
+<<<<<<< HEAD
          wait(NULL); 
+=======
+         wait(NULL);
+>>>>>>> 8eb112326780cf5c658075f75e6bea24839c0791
         }
         if(childPID == 0) { //fork pid child
           if (execvp (inputArray[0], inputArray) == -1) {     //1st arg command (turned into c string), 2nd arg arguments
@@ -110,7 +137,7 @@ class Command : public CommandPrompt { 	//Leaf that will execute command + argum
         }
       }
     }
-    
+
    bool commandFailed() {return this->ifFailed;}  //returns if command has failed or not
 
 };
