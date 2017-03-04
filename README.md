@@ -59,3 +59,13 @@ $ tacos #this fails and outputs error
 
 ###Comment bugs
 - .find() not working to find "#" (Fixed using string::npos)
+
+### Parenthesis bugs:
+- Examples such as (ls) && (echo a) will not work. We do not know why.
+    * Example:
+    ~~~
+    dwhel001@hammer.cs.ucr.edu$(echo a) && (echo b)
+    a
+    dwhel001@hammer.cs.ucr.edu$
+    ~~~
+    
