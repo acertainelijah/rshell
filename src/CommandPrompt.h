@@ -13,11 +13,11 @@ class CommandPrompt { //BASE CLASS FOR OUR COMPOSITE PATTERN
     virtual bool commandFailed() = 0;
     virtual void setLeft(CommandPrompt* l) {};
     virtual void setRight(CommandPrompt* r) {};
-    virtual CommandPrompt* getLeft() {};
-    virtual CommandPrompt* getRight() {};
-    virtual char** InputArray() {};
+    virtual CommandPrompt* getLeft() { return NULL; } ;
+    virtual CommandPrompt* getRight() { return NULL; } ;
+    virtual char** InputArray() {return NULL;} ;
     // virtual char** fileNameArray() {};
-    virtual string fileNameString() {};
+    virtual string fileNameString() { return "";} ;
 
 };
 

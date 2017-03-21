@@ -90,12 +90,12 @@ public:
               }
             }
             
-            for(unsigned j = 0; j < numOpen; j++){
+            for(int j = 0; j < numOpen; j++){
               revisedUserInput.push_back("(");
             }
             newString = parsedUserInput.at(i).substr(numOpen, parsedUserInput.at(i).size() - numOpen - numClosed);
             revisedUserInput.push_back(newString);
-            for(unsigned j = 0; j < numClosed; j++){
+            for(int j = 0; j < numClosed; j++){
               revisedUserInput.push_back(")");
             }
           }

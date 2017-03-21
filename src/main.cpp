@@ -8,6 +8,10 @@
 #include "Prompt.h"
 #include "Parenthesis.h"
 #include "File.h"
+#include "Append.h"
+#include "InputRedirect.h"
+#include "Overwrite.h"
+#include "Pipe.h"
 
 
 using namespace std;
