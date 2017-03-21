@@ -15,6 +15,9 @@ class CommandPrompt { //BASE CLASS FOR OUR COMPOSITE PATTERN
     virtual void setRight(CommandPrompt* r) {};
     virtual CommandPrompt* getLeft() {};
     virtual CommandPrompt* getRight() {};
+    virtual char** InputArray() {};
+    // virtual char** fileNameArray() {};
+    virtual string fileNameString() {};
 
 };
 
